@@ -1,0 +1,35 @@
+{
+  "sources": [
+    {
+      "name": "Synthetic feed",
+      "type": "synthetic",
+      "description": "Generated sample population. Fast, date-anchored to today, wide metadata. Default while building out the UI.",
+      "options": {
+        "count": 3000,
+        "seed": 20260426
+      },
+      "key_fields": [
+        "Order ID",
+        "Sample ID"
+      ],
+      "open_filter": {
+        "type": "group",
+        "op": "AND",
+        "children": [
+          {
+            "type": "cond",
+            "field": "Order Is Open",
+            "kind": "bool",
+            "op": "is_true"
+          },
+          {
+            "type": "cond",
+            "field": "Is Abandoned",
+            "kind": "bool",
+            "op": "is_false"
+          }
+        ]
+      }
+    }
+  ]
+}

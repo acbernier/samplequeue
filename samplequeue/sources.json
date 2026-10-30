@@ -1,0 +1,41 @@
+{
+  "sources": [
+    {
+      "name": "Synthetic feed",
+      "type": "synthetic",
+      "description": "Generated sample population. Fast, date-anchored to today, wide metadata. Default while building out the UI.",
+      "options": {
+        "count": 6000,
+        "seed": 20260426
+      },
+      "key_fields": ["Order ID", "Sample ID"],
+      "open_filter": {
+        "type": "group",
+        "op": "AND",
+        "children": [
+          {"type": "cond", "field": "Order Is Open", "kind": "bool", "op": "is_true"},
+          {"type": "cond", "field": "Is Abandoned", "kind": "bool", "op": "is_false"}
+        ]
+      }
+    },
+    {
+      "name": "Mission Control (BigQuery)",
+      "type": "bigquery",
+      "description": "Live feed. Fill in `project` and `query`, then pip install google-cloud-bigquery.",
+      "options": {
+        "project": "",
+        "query": ""
+      },
+      "key_fields": ["order_id", "sample_id"],
+      "open_filter": {"type": "group", "op": "AND", "children": []}
+    },
+    {
+      "name": "Delimited export",
+      "type": "csv",
+      "description": "Any CSV/TSV export. Auto-detects UTF-16 and tab delimiters. Set `path` and `key_fields`.",
+      "path": "",
+      "key_fields": [],
+      "open_filter": {"type": "group", "op": "AND", "children": []}
+    }
+  ]
+}

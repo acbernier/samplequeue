@@ -1,0 +1,15 @@
+fastapi>=0.110
+uvicorn[standard]>=0.27
+openpyxl>=3.1
+
+# PostgreSQL, used when DATABASE_URL is set. Harmless to install locally.
+psycopg[binary]>=3.1
+
+# Verifies the Identity-Aware Proxy JWT when IAP_AUDIENCE is set.
+google-auth>=2.28
+# google.auth.transport.requests needs this; without it IAP verification
+# fails as though every token were invalid.
+requests>=2.31
+
+# Only needed when you switch the source type to "bigquery":
+# google-cloud-bigquery>=3.17

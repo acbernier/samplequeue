@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SampleQueue</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#/">SampleQueue</a>
+  <nav id="crumbs"></nav>
+  <div class="lookup-wrap">
+    <input id="lookup" class="lookup" autocomplete="off" spellcheck="false"
+           placeholder="Find a sample or order…  (⌘K)">
+  </div>
+  <div class="spacer"></div>
+  <span id="snapshot" class="snapshot"></span>
+  <button id="refresh-btn" class="btn btn-ghost" title="Pull the latest open orders">Refresh data</button>
+  <label class="who">as <input id="actor" placeholder="your name" autocomplete="off"></label>
+</header>
+
+<div id="lookup-panel" class="lookup-panel hidden"></div>
+
+<main id="view"></main>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SampleQueue (demo)</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  #sq-loading { position: fixed; inset: 0; background: #fff; z-index: 100; display: flex;
+    flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    font: 15px system-ui, sans-serif; color: #334155; }
+  #sq-loading small { color: #64748b; }
+  #sq-demo-bar { background: #fef9c3; color: #713f12; font: 13px system-ui, sans-serif;
+    padding: 6px 14px; display: flex; gap: 12px; align-items: center; }
+  #sq-demo-bar button { font: inherit; padding: 2px 8px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div id="sq-loading"><div id="sq-loading-msg">Starting SampleQueue…</div>
+  <small>First visit takes a few seconds. After that it opens quickly.</small></div>
+<div id="sq-demo-bar">
+  <span><strong>Demo.</strong> Synthetic sample data. Your edits are saved in this browser only
+    and are not shared with anyone else.</span>
+  <button id="sq-reset" type="button">Reset demo</button>
+</div>
+<header class="topbar">
+  <a class="brand" href="#/">SampleQueue</a>
+  <nav id="crumbs"></nav>
+  <div class="lookup-wrap">
+    <input id="lookup" class="lookup" autocomplete="off" spellcheck="false"
+           placeholder="Find a sample or order…  (⌘K)">
+  </div>
+  <div class="spacer"></div>
+  <span id="snapshot" class="snapshot"></span>
+  <button id="refresh-btn" class="btn btn-ghost" title="Regenerate the synthetic sample feed">Refresh data</button>
+  <label class="who">as <input id="actor" placeholder="your name" autocomplete="off"></label>
+</header>
+
+<div id="lookup-panel" class="lookup-panel hidden"></div>
+
+<main id="view"></main>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="boot.js"></script>
+</body>
+</html>
