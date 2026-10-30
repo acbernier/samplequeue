@@ -114,7 +114,8 @@ function call(method, url, body, actor) {
 }
 
 window.fetch = async (input, opts = {}) => {
-  const url = typeof input === 'string' ? input : input.url;
+  // Callers pass a string, a URL object or a Request; only act on our own /api paths.
+  const url = typeof input === 'string' ? input : String(input.url || input.href || '');
   if (!url.startsWith('/api/')) return realFetch(input, opts);
   await ready;
   const method = (opts.method || 'GET').toUpperCase();
